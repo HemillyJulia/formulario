@@ -2,30 +2,27 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
 
-function formulario (){
-  // how to make a function that makes the console.log of the fields typed in my form in javascript?
-var nameInput = document.getElementById('name');
+const onSubmit = (e) => {
+  e.preventDefault()
+  const data = {
+    name: e.target.elements.name.value,
+    nascimento: e.target.elements.nascimento.value,
+    gender: e.target.elements.gender.value,
+    email:e.target.elements.email.value,
+    contact:e.target.elements.contact.value,
+    address:e.target.elements.address.value,
+    CEP:e.target.elements.CEP.value,
+    city:e.target.elements.city.value,
+    state:e.target.elements.state.value,
+    message:e.target.elements.message.value,
+    foto:e.target.elements.foto.value,
+    
+          
 
-document.querySelector('form.pure-form').addEventListener('submit', function (e) {
-
-    //prevent the normal submission of the form
-    e.preventDefault();
-
-    console.log(nameInput.value);    
-});
-
-
-
-
-
-
+  }
+  console.log(data)
+  
 }
-
-
-
-
-
-
 
 
   return (
@@ -33,7 +30,7 @@ document.querySelector('form.pure-form').addEventListener('submit', function (e)
       <h1> Inscrição BBB - 2023</h1>
       <p> Que tal entrar na casa mais vigiada do Brasil?</p>
 
-      <form action="">
+      <form onSubmit={onSubmit}>
       <fieldset>
         <legend> Faça sua inscrição e, boa sorte!</legend>
         <label type="name">Nome:</label> <br></br>
@@ -42,11 +39,12 @@ document.querySelector('form.pure-form').addEventListener('submit', function (e)
           name="Nome"
           id="name"
           placeholder="Digite seu nome completo"
+          
         ></input>
         <br></br> <br></br>
         <label type="date">Data de Nascimento:</label>
         <br></br>
-        <input type="date" value="1994-06-06"></input>
+        <input type="date" name="nascimento" id="nascimento" ></input>
         <br></br> <br></br>
         <legend>Gênero:</legend>
         <input type="radio" id="gender" name="gender" value="masculine"></input>
@@ -58,7 +56,7 @@ document.querySelector('form.pure-form').addEventListener('submit', function (e)
         <br></br> <br></br>
         <label type="email"> E-mail:</label>
         <br></br>
-        <input type="email" name="E-mail" id="e-mail"></input>
+        <input type="email" name="email" id="email"></input>
         <br></br> <br></br>
         <label>Contato:</label>
         <br></br>
@@ -67,6 +65,7 @@ document.querySelector('form.pure-form').addEventListener('submit', function (e)
           name="contact"
           id="contact"
           placeholder="(xx) xxxxx-xxxx"
+          
         ></input>
         <br></br> <br></br>
         <label>Endereço:</label>
@@ -77,24 +76,24 @@ document.querySelector('form.pure-form').addEventListener('submit', function (e)
         <label type="city" name="city" id="city"></label>{" "}
         <label type="state">Cidade:</label>
         <br></br>
-        <input type="city" name="city" id="city"></input>{" "}
-        <label type="state">Estado:</label>{" "}
-        <select>
+        <input type="city" name="estado" id="city"></input>{" "}
+        <label type="state" >Estado:</label>{" "}
+        <select name="state"  >
           <option value=""> Selecione aqui</option>
           <option value="state"></option>
-          <option value="state">AM</option>
-          <option value="state">RJ</option>
-          <option value="state">SP</option>
-          <option value="state">CE</option>
-          <option value="state">PR</option>
-          <option value="state">MG</option>
-          <option value="state">GO</option>
-          <option value="state">SC</option>
-          <option value="state">RN</option>
-          <option value="state">RO</option>
-          <option value="state">PI</option>
-          <option value="state">ES</option>
-          <option value="state">AL</option>
+          <option value="AM">AM</option>
+          <option value="RJ">RJ</option>
+          <option value="SP">SP</option>
+          <option value="CE">CE</option>
+          <option value="PR">PR</option>
+          <option value="MG">MG</option>
+          <option value="GO">GO</option>
+          <option value="SC">SC</option>
+          <option value="RN">RN</option>
+          <option value="RO">RO</option>
+          <option value="PI">PI</option>
+          <option value="ES">ES</option>
+          <option value="AL">AL</option>
         </select>
         <br></br> <br></br>
         <label type="message">
@@ -104,9 +103,9 @@ document.querySelector('form.pure-form').addEventListener('submit', function (e)
         <textarea id="message" name="message" rows="10" cols="50"></textarea>
         <br></br> <br></br>
         <label type="file">Insira uma foto sua aqui:</label><br></br>
-        <input type="file" accept="image.png, png, jpeg" ></input>
+        <input type="file" name="foto" accept="image.png, png, jpeg" ></input>
         <br></br> <br></br>
-        <button type="submit"> Enviar Formulário</button>
+        <button id="botaosalvar" type="submit"> Enviar Formulário</button>
       </fieldset>
       </form>
     </div>
